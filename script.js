@@ -17,10 +17,34 @@
 ];
 
 let index = 0;
+let imageInterval;
 
-function changeBackground() {
-  document.body.style.background = "black url('" + images[index] + "') no-repeat center center / cover";
-  index = (index + 1) % images.length;
+const video = document.getElementById('bgVideo');
+
+function startImages() {
+  video.style.display = "none";
+
+  imageInterval = setInterval(() => {
+    document.body.style.background =
+      "black url('" + images[index] + "') no-repeat center center / cover";
+    index = (index + 1) % images.length;
+  }, 4000);
+
+  // After images run for a while → go back to video
+  setTimeout(() => {
+    clearInterval(imageInterval);
+    startVideo();
+  }, 20000); // images run for 20 seconds
 }
 
-setInterval(changeBackground, 4000);
+function startVideo() {
+  video.style.display = "block";
+  video.currentTime = 0;
+  video.play();
+
+  setTimeout(() => {
+    startImages();
+  }, 10000); // video plays for 10 seconds
+}
+
+window.onload = startVideo;
