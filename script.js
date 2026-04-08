@@ -24,17 +24,22 @@ const video = document.getElementById('bgVideo');
 function startImages() {
   video.style.display = "none";
 
+  let count = 0;
+
   imageInterval = setInterval(() => {
     document.body.style.background =
       "black url('" + images[index] + "') no-repeat center center / cover";
-    index = (index + 1) % images.length;
-  }, 4000);
 
-  // After images run for a while → go back to video
-  setTimeout(() => {
-    clearInterval(imageInterval);
-    startVideo();
-  }, 20000); // images run for 20 seconds
+    index = (index + 1) % images.length;
+    count++;
+
+    // when ALL images have shown → go back to video
+    if (count >= images.length) {
+      clearInterval(imageInterval);
+      startVideo();
+    }
+
+  }, 4000);
 }
 
 function startVideo() {
@@ -44,7 +49,7 @@ function startVideo() {
 
   setTimeout(() => {
     startImages();
-  }, 10000); // video plays for 10 seconds
+  }, 25000); // video = 25 seconds
 }
 
 window.onload = startVideo;
