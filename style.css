@@ -199,3 +199,32 @@ align-items: center;
 .navbar nav a {
 margin: 0 15px;
 }
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.page-content h1 {
+    font-size: 28px;
+}
+
+.page-content p {
+    font-size: 18px;
+}
+
+.page-content a {
+    font-size: 18px;
+}
+
+body {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    min-height: 100vh;
+}
