@@ -13,14 +13,15 @@ color:white;
 
 /* NAV */
 .navbar {
-position:fixed;
-width:100%;
-top:0;
-display:flex;
-justify-content:space-between;
-padding:20px 40px;
-background:rgba(0,0,0,0.7);
-z-index:1000;
+position: fixed;
+width: 100%;
+top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px 0;
+background: rgba(0,0,0,0.7);
+z-index: 1000;
 }
 
 .navbar a {
@@ -168,3 +169,33 @@ object-fit: cover;
 z-index: -1;
 }
 
+
+@media (max-width: 768px) {
+  .navbar {
+position: fixed;
+width: 100%;
+top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px 0;
+background: rgba(0,0,0,0.7);
+z-index: 1000;
+}
+
+  .navbar nav a {
+    margin: 0 8px;
+    font-size: 14px;
+  }
+}
+
+
+.navbar nav {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.navbar nav a {
+margin: 0 15px;
+}
